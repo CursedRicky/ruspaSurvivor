@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhqvslvslqfkc"]
+
+[ext_resource type="Script" path="res://scripts/EnemyProjectile.gd" id="1_gf2cy"]
+[ext_resource type="Texture2D" uid="uid://c3pdh1rfl1g4i" path="res://art/Enemy/2/Attack/Bullet Loop.png" id="1_sjska"]
+[ext_resource type="PackedScene" uid="uid://dpg8igdyy7wcb" path="res://scenes/hitBox.tscn" id="2_yv6re"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg6mm"]
+atlas = ExtResource("1_sjska")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk0kd"]
+atlas = ExtResource("1_sjska")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iksfs"]
+atlas = ExtResource("1_sjska")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_10kwi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg6mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk0kd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iksfs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rl7mn"]
+radius = 7.0
+height = 24.0
+
+[node name="Node2D" type="CharacterBody2D"]
+script = ExtResource("1_gf2cy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_10kwi")
+autoplay = "default"
+frame_progress = 0.152191
+
+[node name="hitBox" parent="." instance=ExtResource("2_yv6re")]
+collision_layer = 2
+damage = 5
+
+[node name="CollisionShape2D" parent="hitBox" index="0"]
+position = Vector2(-1, 1)
+rotation = -1.56798
+shape = SubResource("CapsuleShape2D_rl7mn")
+debug_color = Color(0.825244, 0.00160545, 0.955459, 0.42)
+
+[editable path="hitBox"]

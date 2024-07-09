@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://rlsd67hheeb8"]
+
+[ext_resource type="Script" path="res://scripts/xPShard.gd" id="1_qdc3h"]
+[ext_resource type="Texture2D" uid="uid://dg0j8nxfva6pu" path="res://art/Player/MediumShadow.png" id="2_2a805"]
+[ext_resource type="Texture2D" uid="uid://8xaj6nqykxgs" path="res://art/Sirens/sirenR.png" id="2_dgr0j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i00o8"]
+
+[node name="Exp" type="Area2D" groups=["Loot"]]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_qdc3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_dgr0j")
+region_rect = Rect2(5.56802, 10.4588, 11.351, 13.3779)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 1)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_2a805")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_i00o8")
+
+[node name="Animator" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Killer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
+[connection signal="timeout" from="Animator" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Killer" to="." method="_on_killer_timeout"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://did74axg3uxre"]
+
+[ext_resource type="Texture2D" uid="uid://cyv6vdxk1g0vt" path="res://art/UI/skillGap.png" id="1_3v3l7"]
+[ext_resource type="Script" path="res://scripts/item_option.gd" id="2_kg2np"]
+[ext_resource type="FontFile" uid="uid://brxyk3yvewsvc" path="res://art/font1.ttf" id="2_qiofo"]
+[ext_resource type="Texture2D" uid="uid://b7v2to865u8rc" path="res://art/UI/UpgradeIcons/healt.png" id="4_nemsw"]
+
+[node name="ItemOption" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_3v3l7")
+script = ExtResource("2_kg2np")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 60.0
+offset_right = 432.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("2_qiofo")
+theme_override_font_sizes/font_size = 64
+text = "vita"
+horizontal_alignment = 2
+
+[node name="Lvl" type="Label" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 120.0
+offset_right = 152.0
+offset_bottom = 150.0
+theme_override_fonts/font = ExtResource("2_qiofo")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 70.0
+offset_right = 150.0
+offset_bottom = 110.0
+texture = ExtResource("4_nemsw")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

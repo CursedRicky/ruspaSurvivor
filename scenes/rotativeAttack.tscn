@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://500jch7ksiw1"]
+
+[ext_resource type="Script" path="res://scripts/rotativeAttack.gd" id="1_cl16a"]
+[ext_resource type="Texture2D" uid="uid://d34xuwwwti377" path="res://art/Projectile/cone.png" id="2_y588b"]
+[ext_resource type="PackedScene" uid="uid://dpg8igdyy7wcb" path="res://scenes/hitBox.tscn" id="3_4ft1u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7d4y"]
+radius = 10.0499
+
+[node name="COTU" type="Node2D"]
+script = ExtResource("1_cl16a")
+
+[node name="Cone1" type="Sprite2D" parent="."]
+texture = ExtResource("2_y588b")
+
+[node name="hitBox" parent="Cone1" instance=ExtResource("3_4ft1u")]
+collision_layer = 4
+damage = 20
+
+[node name="CollisionShape2D" parent="Cone1/hitBox" index="0"]
+shape = SubResource("CircleShape2D_q7d4y")
+
+[node name="Cone2" type="Sprite2D" parent="."]
+texture = ExtResource("2_y588b")
+
+[node name="hitBox" parent="Cone2" instance=ExtResource("3_4ft1u")]
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="Cone2/hitBox" index="0"]
+shape = SubResource("CircleShape2D_q7d4y")
+
+[node name="Cone3" type="Sprite2D" parent="."]
+texture = ExtResource("2_y588b")
+
+[node name="hitBox" parent="Cone3" instance=ExtResource("3_4ft1u")]
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="Cone3/hitBox" index="0"]
+shape = SubResource("CircleShape2D_q7d4y")
+
+[node name="Cone4" type="Sprite2D" parent="."]
+texture = ExtResource("2_y588b")
+
+[node name="hitBox" parent="Cone4" instance=ExtResource("3_4ft1u")]
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="Cone4/hitBox" index="0"]
+shape = SubResource("CircleShape2D_q7d4y")
+
+[node name="Cone5" type="Sprite2D" parent="."]
+texture = ExtResource("2_y588b")
+
+[node name="hitBox" parent="Cone5" instance=ExtResource("3_4ft1u")]
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="Cone5/hitBox" index="0"]
+shape = SubResource("CircleShape2D_q7d4y")
+
+[editable path="Cone1/hitBox"]
+[editable path="Cone2/hitBox"]
+[editable path="Cone3/hitBox"]
+[editable path="Cone4/hitBox"]
+[editable path="Cone5/hitBox"]
